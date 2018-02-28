@@ -6,6 +6,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      // formData can be provided initially, but this is not necessary.
       formData: {
         myTextInput: "an initial value",
         // initially, value "three" is checked in this radiogroup

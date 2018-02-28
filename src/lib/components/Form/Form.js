@@ -23,7 +23,7 @@ class Form extends Component {
     return {
       onChange: this.onChange,
       getValue: this.getValue,
-      state: this.props.formData,
+      state: this.props.formData || {},
     };
   }
 
