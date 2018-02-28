@@ -7,7 +7,7 @@ const makeFormElement = WrappedComponent => {
   return class DecoratedComponent extends Component {
     static propTypes = {
       id: PropTypes.string.isRequired,
-      onChange: PropTypes.func.isRequired,
+      onChange: PropTypes.func,
     };
 
     static contextTypes = {

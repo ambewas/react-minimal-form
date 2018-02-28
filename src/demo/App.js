@@ -3,8 +3,6 @@
 import React, { Component } from "react";
 import { Form, TextInput, TextArea, RadioGroup } from "../lib";
 class App extends Component {
-  state = {}
-
   constructor() {
     super();
     this.state = {
@@ -32,8 +30,9 @@ class App extends Component {
         <TextInput
           id="myTextInput"
           // all other  domprops work
-            onBlur={console.log} // eslint-disable-line
+          onBlur={console.log} // eslint-disable-line
         />
+
         <TextArea
           id="myOtherInput"
           // custom onchange handler in addition to the value setting things.
