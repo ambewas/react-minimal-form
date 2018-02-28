@@ -1,9 +1,11 @@
 import Form from "./components/Form/Form";
-import { TextInput } from "./components/formComponents";
-console.log("TextInput", TextInput);
+import { TextInput, TextArea } from "./components/formComponents";
+
+
 export default Form;
 
 export {
   Form,
   TextInput,
+  TextArea,
 };
