@@ -26,13 +26,19 @@ class App extends Component {
           formData={this.state.formData}
           onChange={this.handleChange}
         >
-          {this.state.formData.myTextInput}
-          <TextInput
-            id="myTextInput"
-          />
-          <TextArea
-            id="myOtherInput"
-          />
+          <div>
+            {this.state.formData.myTextInput}
+            <TextInput
+              id="myTextInput"
+            />
+          </div>
+          <div>
+            {this.state.formData.myOtherInput}
+            <TextArea
+              id="myOtherInput"
+              onChange={(id, value) => console.log("my custom onChange", id, value)}
+            />
+          </div>
         </Form>
 
       </div>

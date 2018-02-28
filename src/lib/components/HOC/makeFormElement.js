@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { ifDo } from "../../helpers";
 
 const makeFormElement = WrappedComponent => {
   return class DecoratedComponent extends Component { // eslint-disable-line
     static propTypes = {
       id: PropTypes.string,
+      onChange: PropTypes.func,
     };
 
     static contextTypes = {
@@ -21,16 +23,24 @@ const makeFormElement = WrappedComponent => {
       return this.context.state[id] !== nextContext.state[id];
     }
 
+    handleChange = (e) => {
+      const { id, onChange } = this.props;
+
+      // internal context change
+      this.context.onChange(id, e.target.value);
+
+      // handle custom change handlers as well
+      ifDo(onChange, id, e.target.value);
+    }
+
     render() {
       const { id } = this.props;
 
-      // just a note for now, to gauge performance
-      console.log("in le render");
       return (
         <WrappedComponent
-          onChange={(e) => this.context.onChange(id, e.target.value)}
-          value={this.context.getValue(id)}
           {...this.props}
+          value={this.context.getValue(id)}
+          onChange={this.handleChange}
         />
       );
     }
