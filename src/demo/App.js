@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 import React, { Component } from "react";
-import { Form, TextInput, TextArea, RadioGroup } from "../lib";
+import { Form, TextInput, TextArea, RadioGroup, Checkbox } from "../lib";
 class App extends Component {
   constructor() {
     super();
@@ -11,6 +11,7 @@ class App extends Component {
         myTextInput: "an initial value",
         // initially, value "three" is checked in this radiogroup
         firstRadioGroup: "three",
+        mycheckbox: true,
       },
     };
   }
@@ -48,6 +49,11 @@ class App extends Component {
             { value: "three", label: "third choice" },
           ]}
         />
+
+        <Checkbox
+          id="mycheckbox"
+        />
+        <label htmlFor="mycheckbox">checkbox label</label>
       </Form>
     );
   }

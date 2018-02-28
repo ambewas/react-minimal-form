@@ -27,16 +27,20 @@ const makeFormElement = WrappedComponent => {
     handleChange = (e) => {
       const { id, onChange } = this.props;
 
+      // determine correct value. Checkboxes are a silly exception ¯\_(ツ)_/¯
+      const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+
       // internal context change handler sets the values
-      this.context.onChange(id, e.target.value);
+      this.context.onChange(id, value);
 
       // handle custom change handlers as well
-      ifDo(onChange, id, e.target.value);
+      ifDo(onChange, id, value);
     }
 
     render() {
       const { id } = this.props;
 
+      console.log("id, this.context.getValue(id)", id, this.context.getValue(id));
       return (
         <WrappedComponent
           {...this.props}

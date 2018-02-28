@@ -1,5 +1,5 @@
 import Form from "./components/Form/Form";
-import { TextInput, TextArea, RadioGroup } from "./components/formComponents";
+import { TextInput, TextArea, RadioGroup, Checkbox } from "./components/formComponents";
 
 
 export default Form;
@@ -9,4 +9,5 @@ export {
   TextInput,
   TextArea,
   RadioGroup,
+  Checkbox,
 };
