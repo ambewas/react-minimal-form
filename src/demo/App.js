@@ -8,7 +8,6 @@ class App extends Component {
     this.state = {
       formData: {
         myTextInput: "an initial value",
-        myOtherInput: "",
         // initially, value "three" is checked in this radiogroup
         firstRadioGroup: "three",
       },
@@ -22,6 +21,7 @@ class App extends Component {
   }
 
   render() {
+    console.log("this.state.formData", this.state.formData);
     return (
       <Form
         formData={this.state.formData}

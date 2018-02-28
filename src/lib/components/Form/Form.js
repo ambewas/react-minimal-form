@@ -1,7 +1,6 @@
 import { Component } from "react";
 import PropTypes from "prop-types";
-import { set, view } from "ramda";
-import lensify from "lensify";
+import { set, view, lensProp } from "ramda";
 
 class Form extends Component {
   static childContextTypes = {
@@ -18,7 +17,6 @@ class Form extends Component {
 
   constructor(props) {
     super(props);
-    this.formLenses = lensify(props.formData);
   }
 
   getChildContext() {
@@ -30,10 +28,9 @@ class Form extends Component {
   }
 
   getValue = id => {
-    const lens = this.formLenses[id];
-    const value = view(lens, this.props.formData);
+    const lens = lensProp(id);
 
-    return value;
+    return view(lens, this.props.formData);
   }
 
   onChange = (id, value) => {
@@ -42,7 +39,7 @@ class Form extends Component {
     // make new formData from props, with updated value
     // then pass that along to the parent.
     // TODO -- support deeper state tree
-    const idLens = this.formLenses[id];
+    const idLens = lensProp(id);
     const newFormData = set(idLens, value, formData);
 
     this.props.onChange(newFormData);

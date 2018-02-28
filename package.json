@@ -73,7 +73,6 @@
   },
   "peerDependencies": {
     "prop-types": "^15.6.0",
-    "lensify": "^0.1.2",
     "ramda": "^0.25.0",
     "react": ">=0.16",
     "react-dom": ">=0.16"
@@ -122,7 +121,6 @@
     "extends": "react-app"
   },
   "dependencies": {
-    "lensify": "^0.1.2",
     "ramda": "^0.25.0",
     "shallow-compare": "^1.2.2"
   }
