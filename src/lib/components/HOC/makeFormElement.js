@@ -4,10 +4,10 @@ import { ifDo } from "../../helpers";
 import shallowCompare from "shallow-compare";
 
 const makeFormElement = WrappedComponent => {
-  return class DecoratedComponent extends Component { // eslint-disable-line
+  return class DecoratedComponent extends Component {
     static propTypes = {
-      id: PropTypes.string,
-      onChange: PropTypes.func,
+      id: PropTypes.string.isRequired,
+      onChange: PropTypes.func.isRequired,
     };
 
     static contextTypes = {

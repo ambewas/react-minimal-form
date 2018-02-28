@@ -3,12 +3,12 @@ import RadioButton from "./RadioButton";
 import PropTypes from "prop-types";
 import { makeFormElement } from "../../HOC";
 
-const RadioGroup = ({ name, data, onChange, value }) => {
+const RadioGroup = ({ id, data, onChange, value }) => {
   return data.map(item => {
     return (
       <RadioButton
         key={item.value}
-        name={name}
+        name={id}
         onChange={onChange}
         checked={value === item.value}
         {...item}
@@ -24,7 +24,7 @@ RadioGroup.propTypes = {
       label: PropTypes.string,
     })
   ),
-  name: PropTypes.string,
+  id: PropTypes.string, // HOC prop
   onChange: PropTypes.func,
 };
 
