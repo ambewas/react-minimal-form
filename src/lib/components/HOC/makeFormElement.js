@@ -27,7 +27,7 @@ const makeFormElement = WrappedComponent => {
     handleChange = (e) => {
       const { id, onChange } = this.props;
 
-      // internal context change
+      // internal context change handler sets the values
       this.context.onChange(id, e.target.value);
 
       // handle custom change handlers as well
@@ -46,7 +46,6 @@ const makeFormElement = WrappedComponent => {
       );
     }
   };
-
 };
 
 export default makeFormElement;
