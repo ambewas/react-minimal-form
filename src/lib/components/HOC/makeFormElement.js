@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { ifDo } from "../../helpers";
+import shallowCompare from "shallow-compare";
 
 const makeFormElement = WrappedComponent => {
   return class DecoratedComponent extends Component { // eslint-disable-line
@@ -18,9 +19,9 @@ const makeFormElement = WrappedComponent => {
     shouldComponentUpdate(nextProps, nextState, nextContext) {
       const { id } = this.props;
 
-      // only update if the value has actually changed.
+      // only update if the value we got from the context has actually changed, or if props/state has actually changed
       // TODO -- support for deeper state tree
-      return this.context.state[id] !== nextContext.state[id];
+      return shallowCompare(this, nextProps, nextState) || this.context.state[id] !== nextContext.state[id];
     }
 
     handleChange = (e) => {

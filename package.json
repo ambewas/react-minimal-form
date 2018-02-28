@@ -123,6 +123,7 @@
   },
   "dependencies": {
     "lensify": "^0.1.2",
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "shallow-compare": "^1.2.2"
   }
 }

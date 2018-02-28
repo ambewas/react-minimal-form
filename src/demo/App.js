@@ -8,6 +8,7 @@ class App extends Component {
     this.state = {
       formData: {
         myTextInput: "an initial value",
+        myTextInput2: "an initial value",
         myOtherInput: "",
       },
     };
@@ -28,17 +29,9 @@ class App extends Component {
         >
           <div>
             {this.state.formData.myTextInput}
-            <TextInput
-              id="myTextInput"
-            />
+            <TextInput id="myTextInput" />
           </div>
-          <div>
-            {this.state.formData.myOtherInput}
-            <TextArea
-              id="myOtherInput"
-              onChange={(id, value) => console.log("my custom onChange", id, value)}
-            />
-          </div>
+
         </Form>
 
       </div>
@@ -48,3 +41,10 @@ class App extends Component {
 
 export default App;
 
+// <div>
+// {this.state.formData.myOtherInput}
+// <TextArea
+//   id="myOtherInput"
+//   onChange={(id, value) => console.log("my custom onChange", id, value)} // eslint-disable-line
+// />
+// </div>
