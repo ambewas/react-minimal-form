@@ -36,8 +36,14 @@ const makeFormElement = WrappedComponent => {
     getValue = (id) => {
       const { ctx } = this.props;
       const lens = lensProp(id);
+      const value = view(lens, ctx.formData);
 
-      return view(lens, ctx.formData) || ""; // protect against undefined defaults
+      // check for null and undefined
+      if (value == null) { // eslint-disable-line
+        return "";
+      }
+
+      return value;
     }
 
     render() {
