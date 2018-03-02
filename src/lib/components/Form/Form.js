@@ -1,14 +1,9 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { set, view, lensProp } from "ramda";
+import { set, lensProp } from "ramda";
+import { FormContext } from "../../helpers";
 
 class Form extends Component {
-  static childContextTypes = {
-    onChange: PropTypes.func,
-    getValue: PropTypes.func,
-    state: PropTypes.object,
-  }
-
   static propTypes = {
     children: PropTypes.any,
     onChange: PropTypes.func,
@@ -19,34 +14,28 @@ class Form extends Component {
     super(props);
   }
 
-  getChildContext() {
-    return {
-      onChange: this.onChange,
-      getValue: this.getValue,
-      state: this.props.formData || {},
-    };
-  }
-
-  getValue = id => {
-    const lens = lensProp(id);
-
-    return view(lens, this.props.formData);
-  }
-
-  onChange = (id, value) => {
-    const { formData } = this.props;
+  handleChange = (id, value) => {
+    const { formData, onChange } = this.props;
 
     // make new formData from props, with updated value
     // then pass that along to the parent.
-    // TODO -- support deeper state tree
     const idLens = lensProp(id);
     const newFormData = set(idLens, value, formData);
 
-    this.props.onChange(newFormData);
+    onChange(newFormData);
   }
 
   render() {
-    return this.props.children;
+    const contextObject = {
+      formData: this.props.formData,
+      onChange: this.handleChange,
+    };
+
+    return (
+      <FormContext.Provider value={contextObject}>
+        {this.props.children}
+      </FormContext.Provider>
+    );
   }
 }
 

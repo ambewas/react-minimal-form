@@ -7,6 +7,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      enabled: false,
       // formData can be provided initially, but this is not necessary.
       formData: {
         myTextInput: "an initial value",
@@ -31,8 +32,10 @@ class App extends Component {
       >
         <TextInput id="myTextInput" />
 
-        <TextArea id="myOtherInput" />
+        {[...Array(100)].map(i => <TextInput key={i} id="myTextInput2" />)}
 
+        <TextArea disabled={!this.state.enabled} id="myOtherInput" />
+        <button onClick={() => this.setState({ enabled: !this.state.enabled })}>enable</button>
         <RadioGroup
           id={"firstRadioGroup"}
           data={[

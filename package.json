@@ -54,9 +54,9 @@
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
     "raf": "3.4.0",
-    "react": "^16.2.0",
+    "react": "^16.3.0-alpha.1",
     "react-dev-utils": "^4.2.1",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.3.0-alpha.1",
     "react-test-renderer": "^16.2.0",
     "rollup": "^0.56.0",
     "rollup-plugin-babel": "^3.0.3",
@@ -121,7 +121,6 @@
     "extends": "react-app"
   },
   "dependencies": {
-    "ramda": "^0.25.0",
-    "shallow-compare": "^1.2.2"
+    "ramda": "^0.25.0"
   }
 }
