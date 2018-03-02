@@ -12,6 +12,7 @@ const makeFormElement = WrappedComponent => {
     };
 
     shouldComponentUpdate(nextProps) {
+      // we dont want shallow to compare the ctx object.
       const { ctx, ...propsWithoutContext } = this.props;
       const nextPropsWithoutContext = omit(["ctx"], nextProps);
 
@@ -42,7 +43,6 @@ const makeFormElement = WrappedComponent => {
     render() {
       const { id } = this.props;
 
-      console.log("this.getValue(id)", this.getValue(id));
       return (
         <WrappedComponent
           {...this.props}
