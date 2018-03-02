@@ -16,9 +16,6 @@ class Form extends Component {
 
   handleChange = (id, value) => {
     const { formData, onChange } = this.props;
-
-    // make new formData from props, with updated value
-    // then pass that along to the parent.
     const idLens = lensProp(id);
     const newFormData = set(idLens, value, formData);
 
