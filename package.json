@@ -120,7 +120,6 @@
     "extends": "react-app"
   },
   "dependencies": {
-    "create-react-context": "^0.2.1",
-    "ramda": "^0.25.0"
+    "create-react-context": "^0.2.1"
   }
 }

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { ifDo, FormContext, shallowDiffers } from "../../helpers";
-import { view, lensProp, omit } from "ramda";
 
 const makeFormElement = WrappedComponent => {
   class PureWrappedComponent extends Component {
@@ -14,7 +13,10 @@ const makeFormElement = WrappedComponent => {
     shouldComponentUpdate(nextProps) {
       // we dont want shallow to compare the ctx object.
       const { ctx, ...propsWithoutContext } = this.props;
-      const nextPropsWithoutContext = omit(["ctx"], nextProps);
+      const nextPropsWithoutContext = { ...nextProps };
+
+      // remove the ctx key
+      delete nextPropsWithoutContext.ctx;
 
       // only update if the value we got from the context has actually changed, or if props/state has actually changed
       return shallowDiffers(propsWithoutContext, nextPropsWithoutContext) || ctx.formData[this.props.id] !== nextProps.ctx.formData[nextProps.id];
@@ -35,11 +37,10 @@ const makeFormElement = WrappedComponent => {
 
     getValue = (id) => {
       const { ctx } = this.props;
-      const lens = lensProp(id);
-      const value = view(lens, ctx.formData);
+      const value = ctx.formData[id];
 
       // check for null and undefined
-      if (value == null) { // eslint-disable-line
+      if (value == null) { // eslint-disable-line eqeqeq
         return "";
       }
 

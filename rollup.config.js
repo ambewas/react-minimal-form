@@ -7,9 +7,6 @@ import resolve from "rollup-plugin-node-resolve";
 export default {
   input: "src/lib/index.js",
   external: [
-    // add external packages here
-    // e.g. 'rxjs/Observable'
-    "ramda",
     "react",
     "reactDOM",
     "prop-types",
@@ -22,9 +19,6 @@ export default {
     sourcemap: false,
     exports: "named",
     globals: {
-      // add external packages as globals here
-      // e.g. 'rxjs/Observable': 'rxjs_Observable'
-      "ramda": "ramda",
       "react": "react",
       "reactDOM": "reactDOM",
       "prop-types": "PropTypes",

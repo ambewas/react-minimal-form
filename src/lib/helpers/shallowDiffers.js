@@ -1,4 +1,3 @@
-// shallowDiffers is about 2x faster than ramda's `equals`.
 function shallowDiffers(a, b) {
   for (let i in a) {
     if (!(i in b)) {

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { set, lensProp } from "ramda";
 import { FormContext } from "../../helpers";
 
 class Form extends Component {
@@ -16,9 +15,9 @@ class Form extends Component {
 
   handleChange = (id, value) => {
     const { formData, onChange } = this.props;
-    const idLens = lensProp(id);
-    const newFormData = set(idLens, value, formData);
+    const newFormData = { ...formData };
 
+    newFormData[id] = value;
     onChange(newFormData);
   }
 
