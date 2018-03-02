@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import { Form, TextInput, TextArea, RadioGroup, Checkbox } from "../lib";
 
-const AllTextinputs = [...Array(10)].map((_, i) => <TextInput key={i} id="myTextInput2" />);
+const AllTextinputs = [...Array(10)].map((_, i) => <TextInput key={i} id="myTextInput2" />); // eslint-disable-line
 
 class App extends Component {
   constructor() {
