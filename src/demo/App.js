@@ -3,6 +3,8 @@
 import React, { Component } from "react";
 import { Form, TextInput, TextArea, RadioGroup, Checkbox } from "../lib";
 
+const AllTextinputs = [...Array(10)].map((_, i) => <TextInput key={i} id="myTextInput2" />);
+
 class App extends Component {
   constructor() {
     super();
@@ -32,7 +34,7 @@ class App extends Component {
       >
         <TextInput id="myTextInput" />
 
-        {[...Array(100)].map(i => <TextInput key={i} id="myTextInput2" />)}
+        {AllTextinputs}
 
         <TextArea disabled={!this.state.enabled} id="myOtherInput" />
         <button onClick={() => this.setState({ enabled: !this.state.enabled })}>enable</button>
