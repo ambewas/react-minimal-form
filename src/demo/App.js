@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import { Form, TextInput, TextArea, RadioGroup, Checkbox } from "../lib";
+
 class App extends Component {
   constructor() {
     super();
@@ -23,23 +24,15 @@ class App extends Component {
   }
 
   render() {
-    console.log("this.state.formData", this.state.formData);
     return (
       <Form
         formData={this.state.formData}
         onChange={this.handleChange}
       >
-        <TextInput
-          id="myTextInput"
-          // all other  domprops work
-          onBlur={console.log} // eslint-disable-line
-        />
+        <TextInput id="myTextInput" />
 
-        <TextArea
-          id="myOtherInput"
-          // custom onchange handler in addition to the value setting things.
-          onChange={(id, value) => console.log("my custom onChange", id, value)}
-        />
+        <TextArea id="myOtherInput" />
+
         <RadioGroup
           id={"firstRadioGroup"}
           data={[
@@ -50,9 +43,7 @@ class App extends Component {
           ]}
         />
 
-        <Checkbox
-          id="mycheckbox"
-        />
+        <Checkbox id="mycheckbox" />
         <label htmlFor="mycheckbox">checkbox label</label>
       </Form>
     );
