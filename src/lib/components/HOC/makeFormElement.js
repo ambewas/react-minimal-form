@@ -4,14 +4,14 @@ import { ifDo, FormContext, shallowDiffers } from "../../helpers";
 import { view, lensProp, omit } from "ramda";
 
 const makeFormElement = WrappedComponent => {
-  class PureWrappedComponent extends Component { // eslint-disable-line
+  class PureWrappedComponent extends Component {
     static propTypes = {
       id: PropTypes.string.isRequired,
       onChange: PropTypes.func,
       ctx: PropTypes.object,
     };
 
-    shouldComponentUpdate(nextProps) { // eslint-disable-line
+    shouldComponentUpdate(nextProps) {
       const { ctx, ...propsWithoutContext } = this.props;
       const nextPropsWithoutContext = omit(["ctx"], nextProps);
 
@@ -36,12 +36,13 @@ const makeFormElement = WrappedComponent => {
       const { ctx } = this.props;
       const lens = lensProp(id);
 
-      return view(lens, ctx.formData);
+      return view(lens, ctx.formData) || ""; // protect against undefined defaults
     }
 
     render() {
       const { id } = this.props;
 
+      console.log("this.getValue(id)", this.getValue(id));
       return (
         <WrappedComponent
           {...this.props}
@@ -52,7 +53,7 @@ const makeFormElement = WrappedComponent => {
     }
   }
 
-  return (props) => ( // eslint-disable-line
+  return props => ( // eslint-disable-line
     <FormContext.Consumer>
       {ctx => (
         <PureWrappedComponent {...props} ctx={ctx}/>

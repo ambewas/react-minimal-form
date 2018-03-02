@@ -13,6 +13,7 @@ export default {
     "react",
     "reactDOM",
     "prop-types",
+    "create-react-context",
   ],
   output: {
     file: "build/index.js",
@@ -27,6 +28,7 @@ export default {
       "react": "react",
       "reactDOM": "reactDOM",
       "prop-types": "PropTypes",
+      "create-react-context": "createReactContext",
     },
   },
   plugins: [
