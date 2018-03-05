@@ -21,13 +21,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ambewas/react-audio-tools.git"
+    "url": "git+https://github.com/ambewas/react-minimal-form.git"
   },
   "author": "Kevin Decock",
   "bugs": {
-    "url": "https://github.com/ambewas/react-audio-tools"
+    "url": "https://github.com/ambewas/react-minimal-form"
   },
-  "homepage": "https://github.com/ambewas/react-audio-tools#readme",
+  "homepage": "https://github.com/ambewas/react-minimal-form#readme",
   "license": "MIT",
   "devDependencies": {
     "@district01/eslint-config": "^2.0.0",
