@@ -10,7 +10,7 @@ Tiny, simple, and blazing fast react forms using the new context API (Provider/C
 
 # Usage
 ## Building a form
-Building a form in React shouldn't be this hard. With react-minimal-form, building a form is fun again.
+Building a form in React shouldn't be hard. With react-minimal-form, you could even call it fun again.
 
 Here's how it works...
 
