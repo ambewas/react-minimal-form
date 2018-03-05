@@ -1,0 +1,55 @@
+body {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+}
+
+input[type=text], textarea {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  display: block;
+  background: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  margin: 2px;
+}
+
+textarea:disabled {
+  background: #b7b7b7;
+  border: 1px solid grey;
+}
+
+iframe {
+  margin-right: 12px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-one {
+  flex: 1;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.app-container {
+  min-width: 300px;
+  max-width: 750px;
+  margin: auto;
+  background: #ECB12C;
+  padding: 24px 36px;
+}
+
+h1, h2, p {
+  color: #1c222c;
+}
+
+code {
+  background: #1c222c;
+  color: white;
+  padding: 16px;
+  display: block;
+}

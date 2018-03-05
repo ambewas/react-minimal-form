@@ -8,6 +8,9 @@ Tiny, simple, and blazing fast react forms using the new context API (Provider/C
 - Almost dependency free! <small>Well, let's not count react 😇. Right now the only dependency is a package to make the new context API backwards compatible for older versions of react. We plan to remove it in the future.</small>
 - Compatible with your version of React. While we use the new context API, older versions of react are supported.
 
+# install
+`npm i --save react-minimal-form`
+
 # Usage
 ## Building a form
 Building a form in React shouldn't be hard. With react-minimal-form, you could even call it fun again.
