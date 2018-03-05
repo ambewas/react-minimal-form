@@ -5,9 +5,9 @@ import { FormContext, ifDo } from "../../helpers";
 class Form extends Component {
   static propTypes = {
     children: PropTypes.any,
-    onChange: PropTypes.func,
+    onChange: PropTypes.func.isRequired,
     onSubmit: PropTypes.func,
-    formData: PropTypes.object,
+    formData: PropTypes.object.isRequired,
   }
 
   constructor(props) {

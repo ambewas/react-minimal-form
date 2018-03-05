@@ -81,9 +81,9 @@
     "whatwg-fetch": "2.0.3"
   },
   "peerDependencies": {
-    "prop-types": "^15.6.0",
-    "react": ">=0.16",
-    "react-dom": ">=0.16"
+    "prop-types": ">=0.15",
+    "react": ">=0.15",
+    "react-dom": ">=0.15"
   },
   "jest": {
     "collectCoverageFrom": [

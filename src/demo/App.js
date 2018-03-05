@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { Form, TextInput, TextArea, RadioGroup, Checkbox } from "../lib";
 
 // generate a bunch of textinputs to gauge performance
-const AllTextinputs = [...Array(10)].map((_, i) => <TextInput key={i} id="myTextInput2" />); // eslint-disable-line
+const AllTextinputs = [...Array(300)].map((_, i) => <TextInput key={i} id={`myTextInput${i}`}/>); // eslint-disable-line
 
 class App extends Component {
   constructor() {
@@ -32,6 +32,7 @@ class App extends Component {
       <Form
         formData={this.state.formData}
         onChange={this.handleChange}
+        onSubmit={data => console.log("data", data)}
       >
         <TextInput id="myTextInput" />
 
@@ -57,4 +58,3 @@ class App extends Component {
 }
 
 export default App;
-
