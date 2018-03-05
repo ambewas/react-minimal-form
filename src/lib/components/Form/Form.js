@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { FormContext } from "../../helpers";
+import { FormContext, ifDo } from "../../helpers";
 
 class Form extends Component {
   static propTypes = {
     children: PropTypes.any,
     onChange: PropTypes.func,
+    onSubmit: PropTypes.func,
     formData: PropTypes.object,
   }
 
@@ -21,15 +22,25 @@ class Form extends Component {
     onChange(newFormData);
   }
 
+  handleSubmit = e => {
+    const { onSubmit } = this.props;
+
+    e.preventDefault();
+
+    ifDo(onSubmit, this.props.formData);
+  }
+
   render() {
+    const { formData, children } = this.props;
+
     const contextObject = {
-      formData: this.props.formData,
+      formData: formData,
       onChange: this.handleChange,
     };
 
     return (
       <FormContext.Provider value={contextObject}>
-        {this.props.children}
+        <form onSubmit={this.handleSubmit}>{children}</form>
       </FormContext.Provider>
     );
   }

@@ -14,7 +14,7 @@ export default {
   ],
   output: {
     file: "build/index.js",
-    name: "react-form-things",
+    name: "kevin-forms",
     format: "umd",
     sourcemap: false,
     exports: "named",
