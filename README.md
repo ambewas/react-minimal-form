@@ -1,6 +1,6 @@
 Tiny, simple, and blazing fast react forms using the new context API (Provider/Consumer pair). 🚀
 
-React-minimal-form is:
+# React-minimal-form is:
 - A small package (only 5kb!)
 - Really easy to use, while also supporting complex forms
 - Generic! You can build your own form components with our provided HOC (or use our preconfigured, unstyled form elements)
