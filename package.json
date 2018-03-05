@@ -1,7 +1,16 @@
 {
-  "name": "kevin-forms",
+  "name": "react-minimal-form",
   "version": "0.0.1",
-  "description": "Make forms great again.",
+  "description": "A tiny, blazing fast react Form component using the context API, with a higher order component to build your own form elements",
+  "keywords": [
+    "fast form",
+    "react",
+    "tiny form",
+    "easy form react",
+    "generic form",
+    "minimal form",
+    "form"
+  ],
   "main": "build/index.js",
   "scripts": {
     "start": "node scripts/start.js",
