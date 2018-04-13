@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 import React, { Component } from "react";
-import { Form, TextInput, TextArea, RadioGroup, Checkbox } from "../lib";
+import { Form, TextInput, TextArea, RadioGroup, Checkbox, Select } from "../lib";
 import "./app.css";
 
 // generate a bunch of textinputs to gauge performance
@@ -51,6 +51,9 @@ class App extends Component {
           <h2>A standard text area, default disabled.</h2>
           <TextArea disabled={!this.state.enabled} id="myOtherInput" />
           <button onClick={() => this.setState({ enabled: !this.state.enabled })}>toggle textarea</button>
+
+          <h2>A select component</h2>
+          <Select id="mySelect" data={[{ value: "one", label: "one" }, { value: "two", label: "two" }]} />
 
           <h2>A radio group</h2>
           <RadioGroup
