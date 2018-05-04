@@ -39,11 +39,6 @@ const makeFormElement = WrappedComponent => {
       const { ctx } = this.props;
       const value = ctx.formData[id];
 
-      // check for null and undefined
-      if (value == null) { // eslint-disable-line eqeqeq
-        return "";
-      }
-
       return value;
     }
 
