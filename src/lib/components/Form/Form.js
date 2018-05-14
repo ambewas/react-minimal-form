@@ -31,7 +31,7 @@ class Form extends Component {
   }
 
   render() {
-    const { formData, children } = this.props;
+    const { formData, children, ...rest } = this.props;
 
     const contextObject = {
       formData: formData,
@@ -40,7 +40,7 @@ class Form extends Component {
 
     return (
       <FormContext.Provider value={contextObject}>
-        <form onSubmit={this.handleSubmit}>{children}</form>
+        <form onSubmit={this.handleSubmit} {...rest}>{children}</form>
       </FormContext.Provider>
     );
   }
