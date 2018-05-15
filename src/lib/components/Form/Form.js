@@ -7,6 +7,7 @@ class Form extends Component {
     children: PropTypes.any,
     onChange: PropTypes.func.isRequired,
     onSubmit: PropTypes.func,
+    className: PropTypes.string,
     formData: PropTypes.object.isRequired,
   }
 
@@ -31,7 +32,7 @@ class Form extends Component {
   }
 
   render() {
-    const { formData, children, onSubmit, ...rest } = this.props;
+    const { formData, children, className } = this.props;
 
     const contextObject = {
       formData: formData,
@@ -40,7 +41,7 @@ class Form extends Component {
 
     return (
       <FormContext.Provider value={contextObject}>
-        <form onSubmit={this.handleSubmit} {...rest}>{children}</form>
+        <form onSubmit={this.handleSubmit} className={className}>{children}</form>
       </FormContext.Provider>
     );
   }
