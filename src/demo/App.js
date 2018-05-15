@@ -2,6 +2,8 @@
 
 import React, { Component } from "react";
 import { Form, TextInput, TextArea, RadioGroup, Checkbox, Select } from "../lib";
+import NumberStepper from "./Number";
+
 import "./app.css";
 
 // generate a bunch of textinputs to gauge performance
@@ -18,6 +20,7 @@ class App extends Component {
         // initially, value "three" is checked in this radiogroup
         firstRadioGroup: "three",
         mycheckbox: true,
+        numberstepper: 1,
       },
     };
   }
@@ -45,6 +48,7 @@ class App extends Component {
           onChange={this.handleChange}
           onSubmit={data => console.log("data", data)}
         >
+
           <h2>A standard text input</h2>
           <TextInput id="myTextInput" />
 
@@ -69,6 +73,9 @@ class App extends Component {
           <h2>A checkbox</h2>
           <Checkbox id="mycheckbox" />
           <label htmlFor="mycheckbox">checkbox label</label>
+
+          <h2>A custom number stepper component</h2>
+          <NumberStepper id="numberstepper" />
 
           <h2>
             {"Here's 300 inputs, still fast."}

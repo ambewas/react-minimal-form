@@ -22,11 +22,15 @@ const makeFormElement = WrappedComponent => {
       return shallowDiffers(propsWithoutContext, nextPropsWithoutContext) || ctx.formData[this.props.id] !== nextProps.ctx.formData[nextProps.id];
     }
 
-    handleChange = (e) => {
+    handleChange = (eventOrValue) => {
       const { id, onChange, ctx } = this.props;
+      let value = eventOrValue;
 
-      // determine correct value property. Checkboxes are a silly exception ¯\_(ツ)_/¯
-      const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+      if (eventOrValue && eventOrValue.target) {
+        // this is likely an event.
+        // determine correct value property. Checkboxes are a silly exception ¯\_(ツ)_/¯
+        value = eventOrValue.target.type === "checkbox" ? eventOrValue.target.checked : eventOrValue.target.value;
+      }
 
       // internal context change handler sets the values
       ctx.onChange(id, value);
