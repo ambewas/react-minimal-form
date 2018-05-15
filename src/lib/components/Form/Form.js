@@ -31,7 +31,7 @@ class Form extends Component {
   }
 
   render() {
-    const { formData, children, ...rest } = this.props;
+    const { formData, children, onSubmit, ...rest } = this.props;
 
     const contextObject = {
       formData: formData,
