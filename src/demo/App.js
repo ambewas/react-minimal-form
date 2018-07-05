@@ -21,6 +21,10 @@ class App extends Component {
         firstRadioGroup: "three",
         mycheckbox: true,
         numberstepper: 1,
+        address: {
+          street: 'main street',
+          number: 'main street',
+        }
       },
     };
   }
@@ -51,6 +55,10 @@ class App extends Component {
 
           <h2>A standard text input</h2>
           <TextInput id="myTextInput" />
+
+          <h2>Nested values</h2>
+          <TextInput id="address.street" />
+          <TextInput id="address.number" />
 
           <h2>A standard text area, default disabled.</h2>
           <TextArea disabled={!this.state.enabled} id="myOtherInput" />

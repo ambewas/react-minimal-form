@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { ifDo, FormContext, shallowDiffers } from "../../helpers";
+import { ifDo, FormContext, shallowDiffers, get } from "../../helpers";
 
 const makeFormElement = WrappedComponent => {
   class PureWrappedComponent extends Component {
@@ -41,8 +41,10 @@ const makeFormElement = WrappedComponent => {
 
     getValue = (id) => {
       const { ctx } = this.props;
-      const value = ctx.formData[id];
+      // const value = ctx.formData[id];
+      const value = get(ctx.formData, id, "");
 
+      console.log("value", value);
       return value;
     }
 
