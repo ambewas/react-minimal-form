@@ -1,11 +1,13 @@
 import ifDo from "./ifDo";
 import FormContext from "./formContext";
 import shallowDiffers from "./shallowDiffers";
-import path from "./path";
+import get from "./get";
+import set from "./set";
 
 export {
   ifDo,
   FormContext,
   shallowDiffers,
-  path,
+  get,
+  set,
 };

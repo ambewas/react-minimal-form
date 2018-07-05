@@ -10,17 +10,17 @@ const makeFormElement = WrappedComponent => {
       ctx: PropTypes.object,
     };
 
-    shouldComponentUpdate(nextProps) {
-      // we dont want shallow to compare the ctx object.
-      const { ctx, ...propsWithoutContext } = this.props;
-      const nextPropsWithoutContext = { ...nextProps };
+    // shouldComponentUpdate(nextProps) {
+    //   // we dont want shallow to compare the ctx object.
+    //   const { ctx, ...propsWithoutContext } = this.props;
+    //   const nextPropsWithoutContext = { ...nextProps };
 
-      // remove the ctx key
-      delete nextPropsWithoutContext.ctx;
+    //   // remove the ctx key
+    //   delete nextPropsWithoutContext.ctx;
 
-      // only update if the value we got from the context has actually changed, or if props/state has actually changed
-      return shallowDiffers(propsWithoutContext, nextPropsWithoutContext) || ctx.formData[this.props.id] !== nextProps.ctx.formData[nextProps.id];
-    }
+    //   // only update if the value we got from the context has actually changed, or if props/state has actually changed
+    //   return shallowDiffers(propsWithoutContext, nextPropsWithoutContext) || ctx.formData[this.props.id] !== nextProps.ctx.formData[nextProps.id];
+    // }
 
     handleChange = (eventOrValue) => {
       const { id, onChange, ctx } = this.props;
@@ -32,17 +32,21 @@ const makeFormElement = WrappedComponent => {
         value = eventOrValue.target.type === "checkbox" ? eventOrValue.target.checked : eventOrValue.target.value;
       }
 
-      // internal context change handler sets the values
-      ctx.onChange(id, value);
+      const idPathArray = id.split(".");
 
-      // but we handle custom change callbacks as well
+      // internal context change handler sets the values
+      ctx.onChange(idPathArray, value);
+
+      // but we handle custom change callbacks as well.
+      // note that the id will be the exact one you provided, so can be a dot-separated string
       ifDo(onChange, id, value);
     }
 
     getValue = (id) => {
       const { ctx } = this.props;
-      // const value = ctx.formData[id];
-      const value = get(ctx.formData, id, "");
+      const idPath = id.split(".");
+
+      const value = get(ctx.formData, idPath, "");
 
       console.log("value", value);
       return value;

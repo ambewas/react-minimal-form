@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { FormContext, ifDo } from "../../helpers";
+import { FormContext, ifDo, set } from "../../helpers";
 
 class Form extends Component {
   static propTypes = {
@@ -15,11 +15,17 @@ class Form extends Component {
     super(props);
   }
 
-  handleChange = (id, value) => {
+  handleChange = (idPath, value) => {
     const { formData, onChange } = this.props;
     const newFormData = { ...formData };
 
-    newFormData[id] = value;
+    console.log("idPath", idPath);
+    // mutating here, but it's faster.
+    set(value, idPath.join("."), newFormData);
+
+    console.log("newFormData", newFormData);
+    // console.log("idPath", idPath);
+    // newFormData[idPath.join(".")] = value;
     onChange(newFormData);
   }
 

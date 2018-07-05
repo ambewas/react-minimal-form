@@ -22,8 +22,8 @@ class App extends Component {
         mycheckbox: true,
         numberstepper: 1,
         address: {
-          street: 'main street',
-          number: 'main street',
+          street: "main street",
+          number: 4,
         }
       },
     };
