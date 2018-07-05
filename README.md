@@ -19,6 +19,7 @@ Building a form in React shouldn't be hard. With react-minimal-form, you could e
 Here's how it works...
 
 Change handling & input values for form components are provided by the `<Form>` component by leveraging the new React context API. It works, however deeply nested these components are.
+This means it is possible to render a form spread out over different `routes`, allowing you to build very complex flows while still maintaining your form state in one place.
 
 Internally, Form is a context Provider. A higher order component, `makeFormElement` is the context Consumer.
 
