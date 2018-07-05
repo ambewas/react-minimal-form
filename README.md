@@ -156,5 +156,5 @@ All html properties are passed to a form element. In addition, these props are a
 
 | Property | Type | Required | Description
 |----------|:----:|---------:|----------:|
-| id | string | yes | A unique ID used by Form to handle changes and set values |
-| onChange | function | no | Add your own custom onChange handler as well. Will execute after the form change |
+| id | string | yes | A unique ID used by Form to handle changes and set values. This can be a dot-separated path to your nested form value |
+| onChange | function | no | Add your own custom onChange handler as well. Will execute after the form change. Params: `id`, `value` |
