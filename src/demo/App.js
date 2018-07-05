@@ -35,14 +35,16 @@ class App extends Component {
     });
   }
 
+  handleLocalChange = (id, value) => console.log("local id and value", id, value)
+
   render() {
     return (
       <div className="app-container">
         <a className="github-button" href="https://github.com/ambewas" data-size="large" data-show-count="true" aria-label="Follow @ambewas on GitHub">Follow @ambewas</a>
-        <a className="github-button" href="https://github.com/ambewas/react-minimal-form/fork" data-size="large" data-show-count="true" aria-label="Fork ambewas/react-minimal-form on GitHub">Fork</a>
+        <a className="github-button" href="https://github.com/ambewas/react-minimal-form" data-size="large" data-show-count="true" aria-label="Fork ambewas/react-minimal-form on GitHub">Fork</a>
         <h1>React-minimal-form</h1>
-        <p>Tiny, simple, and blazing fast react forms using the new context API (Provider/Consumer pair). 🚀</p>
-        <p>The inputs you get from the package are unstyled. The components used this demo do have some basic styles applied.</p>
+        <p>Tiny, simple, and fast react forms using the new context API (Provider/Consumer pair). 🚀</p>
+        <p>The inputs you get from the package are unstyled. The components used in this demo do have some basic styles applied.</p>
         <p>Install:</p>
         <code>npm i --save react-minimal-form</code>
         <p>This is the form state. It updates in realtime when form elements are filled out.</p>
@@ -52,12 +54,11 @@ class App extends Component {
           onChange={this.handleChange}
           onSubmit={data => console.log("data", data)}
         >
-
           <h2>A standard text input</h2>
           <TextInput id="myTextInput" />
 
           <h2>Nested values</h2>
-          <TextInput id="address.street" />
+          <TextInput id="address.street" onChange={this.handleLocalChange}/>
           <TextInput id="address.number" />
 
           <h2>A standard text area, default disabled.</h2>

@@ -19,13 +19,9 @@ class Form extends Component {
     const { formData, onChange } = this.props;
     const newFormData = { ...formData };
 
-    console.log("idPath", idPath);
     // mutating here, but it's faster.
     set(value, idPath.join("."), newFormData);
 
-    console.log("newFormData", newFormData);
-    // console.log("idPath", idPath);
-    // newFormData[idPath.join(".")] = value;
     onChange(newFormData);
   }
 

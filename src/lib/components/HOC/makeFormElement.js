@@ -10,17 +10,21 @@ const makeFormElement = WrappedComponent => {
       ctx: PropTypes.object,
     };
 
-    // shouldComponentUpdate(nextProps) {
-    //   // we dont want shallow to compare the ctx object.
-    //   const { ctx, ...propsWithoutContext } = this.props;
-    //   const nextPropsWithoutContext = { ...nextProps };
+    shouldComponentUpdate(nextProps) {
+      // we dont want shallow to compare the ctx object.
+      const { ctx, ...propsWithoutContext } = this.props;
+      const nextPropsWithoutContext = { ...nextProps };
 
-    //   // remove the ctx key
-    //   delete nextPropsWithoutContext.ctx;
+      // remove the ctx key
+      delete nextPropsWithoutContext.ctx;
 
-    //   // only update if the value we got from the context has actually changed, or if props/state has actually changed
-    //   return shallowDiffers(propsWithoutContext, nextPropsWithoutContext) || ctx.formData[this.props.id] !== nextProps.ctx.formData[nextProps.id];
-    // }
+      // only update if the value we got from the context has actually changed, or if props/state has actually changed
+      const idPath = this.props.id.split(".");
+      const valueCurrent = get(ctx.formData, idPath, "");
+      const valueNext = get(nextProps.ctx.formData, idPath, "");
+
+      return shallowDiffers(propsWithoutContext, nextPropsWithoutContext) || valueCurrent !== valueNext;
+    }
 
     handleChange = (eventOrValue) => {
       const { id, onChange, ctx } = this.props;
@@ -48,7 +52,6 @@ const makeFormElement = WrappedComponent => {
 
       const value = get(ctx.formData, idPath, "");
 
-      console.log("value", value);
       return value;
     }
 
