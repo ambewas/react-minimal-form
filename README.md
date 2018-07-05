@@ -46,6 +46,9 @@ class App extends Component {
         // initially, value "three" is checked in this radiogroup
         firstRadioGroup: "three",
         mycheckbox: true,
+        address: {
+          street: 'mainstreet'
+        }
       },
     };
   }
@@ -64,6 +67,7 @@ class App extends Component {
         onSubmit={data => /* do things with data */}
       >
         <TextInput id="myTextInput" />
+        <TextInput id="address.street" />
 
         {AllTextinputs}
 
@@ -110,6 +114,23 @@ const TextInput = (props) => {
 };
 
 export default makeFormElement(TextInput);
+```
+
+## Nested paths
+As of react-minimal-form v1, it's possible to identify nested values for your formData with a dot-separated string: (pseudocode)
+
+```
+state = {
+  formData: {
+    address: {
+      street: 'some street'
+    }
+  }
+}
+
+<Form formData={state.formData}>
+
+<TextInput id="address.street">
 ```
 
 ## Validation
