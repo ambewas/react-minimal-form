@@ -1,6 +1,6 @@
 {
   "name": "react-minimal-form",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "description": "A tiny, fast react Form component using the context API, with a higher order component to build your own form elements",
   "keywords": [
     "fast form",
