@@ -14,6 +14,7 @@ class App extends Component {
     super();
     this.state = {
       enabled: false,
+      outsideForm: "",
       // formData can be provided initially, but this is not necessary.
       formData: {
         myTextInput: "an initial value",
@@ -24,7 +25,7 @@ class App extends Component {
         address: {
           street: "main street",
           number: 4,
-        }
+        },
       },
     };
   }
@@ -49,6 +50,7 @@ class App extends Component {
         <code>npm i --save react-minimal-form</code>
         <p>This is the form state. It updates in realtime when form elements are filled out.</p>
         <code>{JSON.stringify(this.state.formData)}</code>
+
         <Form
           formData={this.state.formData}
           onChange={this.handleChange}
@@ -91,6 +93,13 @@ class App extends Component {
             <div className="flex-container flex-wrap">{AllTextinputs}</div>
           </h2>
         </Form>
+
+        {"an input outside of the form should also still work, but you need to provide value and onchange yourself"}
+        <TextInput
+          value={this.state.outsideForm} onChange={(e) => {
+            this.setState({ outsideForm: e.target.value });
+          }}
+        />
       </div>
     );
   }
