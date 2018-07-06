@@ -13,6 +13,12 @@ const makeFormElement = WrappedComponent => {
     shouldComponentUpdate(nextProps) {
       // we dont want shallow to compare the ctx object.
       const { ctx, ...propsWithoutContext } = this.props;
+
+      if (!ctx) {
+        // we're not inside a Form, so no need to take all this into account
+        return true;
+      }
+
       const nextPropsWithoutContext = { ...nextProps };
 
       // remove the ctx key
@@ -48,7 +54,7 @@ const makeFormElement = WrappedComponent => {
 
     getValue = (id) => {
       const { ctx } = this.props;
-      const idPath = id.split(".");
+      const idPath = id && id.split(".");
 
       const value = get(ctx.formData, idPath, "");
 
@@ -56,7 +62,12 @@ const makeFormElement = WrappedComponent => {
     }
 
     render() {
-      const { id } = this.props;
+      const { id, ctx } = this.props;
+
+      if (!ctx) {
+        // we're not inside a Form, so no need to take all this into account
+        return <WrappedComponent {...this.props} />;
+      }
 
       return (
         <WrappedComponent
