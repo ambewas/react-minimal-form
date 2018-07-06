@@ -1,4 +1,4 @@
-Tiny, simple, and blazing fast react forms using the new context API (Provider/Consumer pair). 🚀
+Tiny, simple, fast react forms using the new context API (Provider/Consumer pair). 🚀
 
 [demo website](http://react-minimal-form.surge.sh/)
 # React-minimal-form is:
